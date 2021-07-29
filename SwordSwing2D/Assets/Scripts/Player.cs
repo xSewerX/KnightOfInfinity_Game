@@ -1,6 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -8,7 +11,17 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
+    public int AttackDamage = 10;
+
+    [HideInInspector] public double BonusPointsProcent = 0;
+    [HideInInspector] public double points = 0;
+     public double PointsOverall = 0;
+
+    public GameObject EQANDStats;
+    public GameObject HUD;
+
     public HealthBar healthbar;
+    public TMP_Text PointsLabel;
 
     void Start()
     {
@@ -18,19 +31,16 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(20);
-        }
+        PointsLabel.text = PointsOverall.ToString();
 
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            AddMaxHealth(10);
-        }
+        PointsLabel.text = PointsOverall+"";
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown("escape"))
         {
-            Heal(5);
+            EQANDStats.SetActive(true);
+            HUD.SetActive(false);
+           // Time.timeScale = 0;
+
         }
     }
     public void TakeDamage(int damage)
@@ -50,5 +60,11 @@ public class Player : MonoBehaviour
     {
         currentHealth += heal;
         healthbar.SetHealth(currentHealth);
+    }
+
+    public void AddPoints(double points)
+    {
+        PointsOverall += points + (points * (BonusPointsProcent * 0.01));
+        Debug.Log(PointsOverall);
     }
 }
