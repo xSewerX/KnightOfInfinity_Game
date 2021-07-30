@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
     [HideInInspector] public double BonusPointsProcent = 0;
     [HideInInspector] public double points = 0;
-     public double PointsOverall = 0;
+    public double PointsOverall = 0;
 
     public GameObject EQANDStats;
     public GameObject HUD;
@@ -23,12 +23,13 @@ public class Player : MonoBehaviour
     public HealthBar healthbar;
     public TMP_Text PointsLabel;
 
+
     void Start()
     {
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
     }
-
+    
     void Update()
     {
         PointsLabel.text = PointsOverall.ToString();
@@ -43,6 +44,7 @@ public class Player : MonoBehaviour
 
         }
     }
+
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
