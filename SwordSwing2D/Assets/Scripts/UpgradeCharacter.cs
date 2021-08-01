@@ -53,6 +53,7 @@ public class UpgradeCharacter : MonoBehaviour
         if (Points >= CostStamina)
         {
             player.AddMaxHealth(5);
+            player.Heal(5);
             player.PointsOverall -= CostStamina;
             CostStamina += 1;
         }

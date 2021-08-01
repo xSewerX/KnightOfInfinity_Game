@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetBool("Jumping", !isGrounded);
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isGrounded==true)
         {
             anim.SetBool("Jumping", true);
             rb.velocity = Vector2.up * jumpForce;

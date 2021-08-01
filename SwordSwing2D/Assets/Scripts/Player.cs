@@ -23,9 +23,12 @@ public class Player : MonoBehaviour
     public HealthBar healthbar;
     public TMP_Text PointsLabel;
 
+    private Animator anim;
+
 
     void Start()
     {
+        anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthbar.SetMaxHealth(maxHealth);
     }
@@ -43,10 +46,15 @@ public class Player : MonoBehaviour
            // Time.timeScale = 0;
 
         }
+        if(currentHealth <= 0)
+        {
+            Debug.Log("You are dead!");
+        }
     }
 
     public void TakeDamage(int damage)
     {
+        anim.SetTrigger("Hit");
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
     }
