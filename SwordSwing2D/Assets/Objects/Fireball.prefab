@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6689142395244614945}
   - component: {fileID: 6689142395244614946}
   - component: {fileID: 6689142395244614947}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,11 +250,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9da85b6a1548ba641aa99f6b64cd43a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 7
   Explosion: {fileID: 6689142395380182405}
   Ball: {fileID: 6689142395244614948}
   time: 0.5
-  damage: 10
+  damage: 15
 --- !u!58 &6689142395609275686
 CircleCollider2D:
   m_ObjectHideFlags: 0

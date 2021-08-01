@@ -5,7 +5,6 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     public float speed;
-    //public Rigidbody2D rb;
 
     private Transform player;
     private Vector2 target;
@@ -13,13 +12,13 @@ public class Projectile : MonoBehaviour
     public GameObject Ball;
     public float time = 0.5f;
 
-    //public GameObject PlayerObject;
+    
     private Player playerscript;
     public int damage = 10;
 
     void Start()
     {
-       // PlayerObject = GameObject.FindGameObjectWithTag("Player");
+        playerscript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x, player.position.y);
     }
@@ -27,7 +26,7 @@ public class Projectile : MonoBehaviour
 
     void Update()
     {
-        playerscript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
        
         if(transform.position.x == target.x && transform.position.y == target.y)

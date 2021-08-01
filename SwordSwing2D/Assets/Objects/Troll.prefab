@@ -156,9 +156,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdf916dbfc34704a903c5913ad71eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  EnemyObject: {fileID: 1772268884706829874}
+  StartHP: 50
+  AddHealth: 0
+  maxHealth: 0
   points: 10
+  HpRegeneration: {fileID: 3434514774844139625, guid: 37f1eba38cc07f14b851e7337f1220da, type: 3}
 --- !u!114 &1772268884706829877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,7 +174,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 4
-  stopDistance: 0.9
+  stopDistance: 1
   StartCooldown: 1
   Hitbox: {fileID: 1772268885307620048}
 --- !u!1 &1772268885307620048

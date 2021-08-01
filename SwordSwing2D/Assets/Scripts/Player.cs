@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class Player : MonoBehaviour
 {
@@ -19,6 +18,7 @@ public class Player : MonoBehaviour
 
     public GameObject EQANDStats;
     public GameObject HUD;
+    public GameObject DefeatScreen;
 
     public HealthBar healthbar;
     public TMP_Text PointsLabel;
@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     
     void Update()
     {
+        
+
         PointsLabel.text = PointsOverall.ToString();
 
         PointsLabel.text = PointsOverall+"";
@@ -43,12 +45,14 @@ public class Player : MonoBehaviour
         {
             EQANDStats.SetActive(true);
             HUD.SetActive(false);
-           // Time.timeScale = 0;
+            Time.timeScale = 0;
 
         }
         if(currentHealth <= 0)
         {
-            Debug.Log("You are dead!");
+            
+            Invoke("Death", 1.0f);
+            
         }
     }
 
@@ -57,6 +61,7 @@ public class Player : MonoBehaviour
         anim.SetTrigger("Hit");
         currentHealth -= damage;
         healthbar.SetHealth(currentHealth);
+        
     }
 
     public void AddMaxHealth(int addHealth)
@@ -76,5 +81,10 @@ public class Player : MonoBehaviour
     {
         PointsOverall += points + (points * (BonusPointsProcent * 0.01));
         Debug.Log(PointsOverall);
+    }
+    void Death()
+    {
+        DefeatScreen.SetActive(true);
+        Time.timeScale = 0;
     }
 }

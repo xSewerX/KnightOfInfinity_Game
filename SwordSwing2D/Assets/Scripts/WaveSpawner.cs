@@ -2,14 +2,19 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections.Generic;
 
 public class WaveSpawner : MonoBehaviour {
 
 	public enum SpawnState { SPAWNING, WAITING, COUNTING };
 	public TMP_Text TimerLabel;
 	public TMP_Text WaveLabel;
+	public GameObject EnemyWarning;
 
-	private EnemyHealth enemyhealth;
+	private GameObject wizardhealth;
+	private GameObject trollhealth;
+	private EnemyHealth a;
+
 	private EnemyTroll enemytroll;
 	private EnemyWizard enemywizard;
 
@@ -50,6 +55,8 @@ public class WaveSpawner : MonoBehaviour {
 
 	void Start()
 	{
+		
+
 		if (spawnPoints.Length == 0)
 		{
 			Debug.LogError("No spawn points referenced.");
@@ -60,6 +67,7 @@ public class WaveSpawner : MonoBehaviour {
 
 	void Update()
 	{
+
 		TimerLabel.text = (int)waveCountdown+"";
 		WaveLabel.text = WavesCount + "";
 		if (state == SpawnState.WAITING)
@@ -98,6 +106,8 @@ public class WaveSpawner : MonoBehaviour {
 		{
 			nextWave = 0;
 			Debug.Log("ALL WAVES COMPLETE! Looping...");
+			EnemyWarning.SetActive(true);
+			Invoke("EnemyUPWarning", 3.0f);
 			EnemyUpgrade();
 			WavesCount++;
 		}
@@ -107,7 +117,11 @@ public class WaveSpawner : MonoBehaviour {
 			nextWave++;
 		}
 	}
+    void EnemyUPWarning()
+    {
+		EnemyWarning.SetActive(false);
 
+	}
 	bool EnemyIsAlive()
 	{
 		searchCountdown -= Time.deltaTime;
@@ -146,9 +160,9 @@ public class WaveSpawner : MonoBehaviour {
 		Transform _sp = spawnPoints[ Random.Range (0, spawnPoints.Length) ];
 		Instantiate(_enemy, _sp.position, _sp.rotation);
 	}
-	public void EnemyUpgrade()
+	 void EnemyUpgrade()
     {
-
-    }
+		
+	}
 
 }

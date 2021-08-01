@@ -34,7 +34,7 @@ public class EnemyWizard : MonoBehaviour
             {
                 Instantiate(Projectile, ShootPoint.position, transform.rotation);
                 attackcooldown = StartCooldown;
-                //Debug.Log("Wizard casted fireball!");
+                
             }
             else
             {

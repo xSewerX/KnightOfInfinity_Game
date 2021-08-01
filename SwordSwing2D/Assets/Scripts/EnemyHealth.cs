@@ -4,22 +4,27 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    public int maxHealth = 100;
+    public int StartHP;
+    public int AddHealth;
+    public int maxHealth;
     int CurrentHealth;
-    public GameObject EnemyObject;
-
     private Animator anim;
     public double points;
+    public GameObject HpRegeneration;
 
     private Player player;
 
     void Start()
     {
+        maxHealth = StartHP + AddHealth;
         anim = GetComponent<Animator>();
         CurrentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
-
+    void Update()
+    {
+        maxHealth = StartHP + AddHealth;
+    }
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
@@ -34,7 +39,17 @@ public class EnemyHealth : MonoBehaviour
     {
         player.AddPoints(points);
         Debug.Log("Enemy died");
+        int number = Random.Range(0, 2);
+        if(number == 1)
+        {
+        Instantiate(HpRegeneration, transform.position, Quaternion.identity);
+        }
         Destroy(gameObject);
 
+    }
+    public void AddBonusHealth(int healthamount)
+    {
+        AddHealth += healthamount;
+        Debug.Log("Dodano zdrowie");
     }
 }

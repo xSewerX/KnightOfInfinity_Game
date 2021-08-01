@@ -13,8 +13,8 @@ GameObject:
   - component: {fileID: 6411573745522631713}
   - component: {fileID: 6411573745522631712}
   - component: {fileID: 6411573745522631740}
-  - component: {fileID: 6411573745522631741}
   - component: {fileID: 6411573745522631719}
+  - component: {fileID: 1098191386324166294}
   m_Layer: 7
   m_Name: DarkWizard
   m_TagString: Enemy
@@ -144,21 +144,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.06734882, y: -0.014427049}
   m_Size: {x: 0.9863779, y: 1.5711458}
   m_Direction: 0
---- !u!114 &6411573745522631741
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6411573745522631742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cfdf916dbfc34704a903c5913ad71eb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 30
-  EnemyObject: {fileID: 6411573745522631742}
-  points: 20
 --- !u!114 &6411573745522631719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,9 +158,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   stopDistance: 6
-  StartCooldown: 1
+  StartCooldown: 1.5
   Projectile: {fileID: 6689142395609275687, guid: 42c88924c3bfb00459de7754dac7efe1, type: 3}
   ShootPoint: {fileID: 6411573746493209076}
+--- !u!114 &1098191386324166294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6411573745522631742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfdf916dbfc34704a903c5913ad71eb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StartHP: 30
+  AddHealth: 0
+  maxHealth: 0
+  points: 20
+  HpRegeneration: {fileID: 3434514774844139625, guid: 37f1eba38cc07f14b851e7337f1220da, type: 3}
 --- !u!1 &6411573746493209077
 GameObject:
   m_ObjectHideFlags: 0
