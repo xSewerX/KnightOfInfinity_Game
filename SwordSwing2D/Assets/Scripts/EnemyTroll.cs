@@ -13,13 +13,14 @@ public class EnemyTroll : MonoBehaviour
     public float StartCooldown;
     public GameObject Hitbox;
     private Animator anim;
-    
+    public int damage;
 
     void Start()
     {
         anim = GetComponent<Animator>();
         target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         attackcooldown = StartCooldown;
+        attackcooldown = 0;
     }
 
     void Update()
@@ -60,6 +61,10 @@ public class EnemyTroll : MonoBehaviour
             rotation.y = 180f;
         }
         transform.eulerAngles = rotation;
+    }
+    public void Damage(int amount)
+    {
+        damage += amount;
     }
 }
 

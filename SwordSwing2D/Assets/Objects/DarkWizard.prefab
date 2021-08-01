@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 6411573745522631714}
   - component: {fileID: 6411573745522631715}
   - component: {fileID: 6411573745522631713}
-  - component: {fileID: 6411573745522631712}
   - component: {fileID: 6411573745522631740}
   - component: {fileID: 6411573745522631719}
   - component: {fileID: 1098191386324166294}
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 31b17986fa5b13f4f9b7403589287a19, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -107,27 +106,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &6411573745522631712
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6411573745522631742}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 6
-  m_Material: {fileID: 6200000, guid: 06c0b747615236d48af6ed8bd328203c, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 4
 --- !u!70 &6411573745522631740
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -156,11 +134,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42730ff1b7abbdb4a9fe3a70e45d1a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 3
   stopDistance: 6
   StartCooldown: 1.5
   Projectile: {fileID: 6689142395609275687, guid: 42c88924c3bfb00459de7754dac7efe1, type: 3}
   ShootPoint: {fileID: 6411573746493209076}
+  damage: 12
 --- !u!114 &1098191386324166294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,10 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfdf916dbfc34704a903c5913ad71eb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartHP: 30
+  StartHP: 12
   AddHealth: 0
   maxHealth: 0
-  points: 20
+  points: 15
   HpRegeneration: {fileID: 3434514774844139625, guid: 37f1eba38cc07f14b851e7337f1220da, type: 3}
 --- !u!1 &6411573746493209077
 GameObject:
@@ -202,7 +181,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6411573746493209077}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.484, y: 0.206, z: 0}
+  m_LocalPosition: {x: -0.587, y: 0.206, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6411573745522631714}

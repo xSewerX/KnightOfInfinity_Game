@@ -12,12 +12,15 @@ public class Projectile : MonoBehaviour
     public GameObject Ball;
     public float time = 0.5f;
 
-    
+    public GameObject wizardobject;
+    private EnemyWizard enemywizard;
     private Player playerscript;
-    public int damage = 10;
+    //public int damage = 10;
 
     void Start()
     {
+        enemywizard = wizardobject.GetComponent<EnemyWizard>();
+
         playerscript = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = new Vector2(player.position.x, player.position.y);
@@ -55,11 +58,15 @@ public class Projectile : MonoBehaviour
             StartCoroutine(Destroy(time));
             speed = 0;
 
-            playerscript.TakeDamage(damage);
+            playerscript.TakeDamage(enemywizard.damage);
         }
 
     }
-
+   // public void AddDamage(int amount)
+   // {
+     //   damage += amount;
+     //   Debug.Log("Dodano dmg");
+   // }
     IEnumerator Destroy(float time)
     {
        yield return new WaitForSeconds(time);

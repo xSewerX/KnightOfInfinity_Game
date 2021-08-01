@@ -10,13 +10,17 @@ public class WaveSpawner : MonoBehaviour {
 	public TMP_Text TimerLabel;
 	public TMP_Text WaveLabel;
 	public GameObject EnemyWarning;
+	public int addBonusHealth;
+	public int addBonusDamage;
 
-	private GameObject wizardhealth;
-	private GameObject trollhealth;
-	private EnemyHealth a;
+	
+	public GameObject trollobject;
+	public GameObject wizardobject;
 
-	private EnemyTroll enemytroll;
-	private EnemyWizard enemywizard;
+	private EnemyHealth enemytroll;
+	private EnemyHealth enemywizard;
+	private EnemyWizard projectile;
+	private EnemyTroll hitboxdamage;
 
 	[System.Serializable]
 	public class Wave
@@ -55,6 +59,11 @@ public class WaveSpawner : MonoBehaviour {
 
 	void Start()
 	{
+		enemytroll = trollobject.GetComponent<EnemyHealth>();
+		enemywizard = wizardobject.GetComponent<EnemyHealth>();
+
+		hitboxdamage = trollobject.GetComponent<EnemyTroll>();
+		projectile = wizardobject.GetComponent<EnemyWizard>();
 		
 
 		if (spawnPoints.Length == 0)
@@ -162,7 +171,10 @@ public class WaveSpawner : MonoBehaviour {
 	}
 	 void EnemyUpgrade()
     {
-		
+		enemytroll.AddBonusHealth(addBonusHealth);
+		projectile.Damage(addBonusDamage);
+		enemywizard.AddBonusHealth(addBonusHealth);
+		hitboxdamage.Damage(addBonusDamage);
 	}
 
 }

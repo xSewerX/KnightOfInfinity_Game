@@ -13,6 +13,7 @@ public class EnemyWizard : MonoBehaviour
     public float StartCooldown;
     public GameObject Projectile;
     public Transform ShootPoint;
+    public int damage = 10;
 
     void Start()
     {
@@ -57,4 +58,10 @@ public class EnemyWizard : MonoBehaviour
         }
         transform.eulerAngles = rotation;
     }
+    public void Damage(int amount)
+    {
+        damage += amount;
+    }
 }
+
+
