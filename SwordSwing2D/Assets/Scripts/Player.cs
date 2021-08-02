@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public int maxHealth = 100;
     public int currentHealth;
 
-    public int AttackDamage = 10;
+    //public int AttackDamage = 10;
 
     [HideInInspector] public double BonusPointsProcent = 0;
     [HideInInspector] public double points = 0;
@@ -35,8 +35,6 @@ public class Player : MonoBehaviour
     
     void Update()
     {
-        
-
         PointsLabel.text = PointsOverall.ToString();
 
         PointsLabel.text = PointsOverall+"";

@@ -155,7 +155,7 @@ MonoBehaviour:
   StartHP: 12
   AddHealth: 0
   maxHealth: 0
-  points: 15
+  points: 8
   HpRegeneration: {fileID: 3434514774844139625, guid: 37f1eba38cc07f14b851e7337f1220da, type: 3}
 --- !u!1 &6411573746493209077
 GameObject:

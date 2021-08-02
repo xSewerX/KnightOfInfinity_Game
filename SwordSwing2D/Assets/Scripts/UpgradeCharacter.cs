@@ -8,6 +8,7 @@ using System;
 public class UpgradeCharacter : MonoBehaviour
 {
     public Player player;
+    public PlayerAttack playerattack;
 
     public TMP_Text HealthLabel;
     int HealthMax;
@@ -39,7 +40,7 @@ public class UpgradeCharacter : MonoBehaviour
         PointsLabel.text = Points.ToString();
         PointsLabel.text = Points + " (+" + player.BonusPointsProcent + "%)";
 
-        Strength = player.AttackDamage;
+        Strength = playerattack.AttackDamage;
         AttackLabel.text = Strength.ToString();
         AttackLabel.text = Strength + "";
 
@@ -81,7 +82,7 @@ public class UpgradeCharacter : MonoBehaviour
     {
         if (Points >= CostStrength)
         {
-            player.AttackDamage += 1;
+            playerattack.AttackDamage += 1;
             player.PointsOverall -= CostStrength;
             CostStrength += 1;
         }

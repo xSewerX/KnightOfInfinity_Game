@@ -24,22 +24,23 @@ public class EnemyHealth : MonoBehaviour
     void Update()
     {
         maxHealth = StartHP + AddHealth;
+        if (CurrentHealth <= 0)
+        {
+            Death();
+        }
     }
     public void TakeDamage(int damage)
     {
         CurrentHealth -= damage;
         anim.SetTrigger("Hit");
-        if (CurrentHealth <= 0)
-        {
-            Death();
-        }
+       
     }
 
     void Death()
     {
         player.AddPoints(points);
         Debug.Log("Enemy died");
-        int number = Random.Range(0, 2);
+        int number = Random.Range(0, 4);
         if(number == 1)
         {
         Instantiate(HpRegeneration, transform.position, Quaternion.identity);
