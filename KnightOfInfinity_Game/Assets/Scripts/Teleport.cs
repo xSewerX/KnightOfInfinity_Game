@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class Teleport : MonoBehaviour
 {
@@ -10,6 +12,7 @@ public class Teleport : MonoBehaviour
     public Transform Player;
     public Transform Spawn;
     private bool canTeleport;
+    public GameObject Information;
 
     void Update()
     {
@@ -28,6 +31,7 @@ public class Teleport : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Information.SetActive(true);
              canTeleport = true;
         }
     }
@@ -35,6 +39,7 @@ public class Teleport : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Information.SetActive(false);
             canTeleport = false;
         }
     }

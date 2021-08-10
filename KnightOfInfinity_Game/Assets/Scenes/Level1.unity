@@ -4331,6 +4331,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf46a57cd4e8fd429349f316f2fa6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2082955792 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5923280090653659024, guid: ca9dfb6d565f428429b1a05ece4b11db, type: 3}
+  m_PrefabInstance: {fileID: 5923280092436057819}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e65accb7308ab1c46b4f3f573ac163f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2094159046 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3873516897158924565, guid: f3552b878ee94b844868adacd34ca121, type: 3}
@@ -4800,6 +4811,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2051359049}
+    - target: {fileID: 6520043460660847268, guid: 46a413d5d8577cb4fb4d36d8a1f36986, type: 3}
+      propertyPath: playerattack
+      value: 
+      objectReference: {fileID: 2082955792}
     - target: {fileID: 6520043461186467219, guid: 46a413d5d8577cb4fb4d36d8a1f36986, type: 3}
       propertyPath: m_Pivot.x
       value: 0
